@@ -76,7 +76,7 @@ for i, company in enumerate(company_list, 1):
 plt.tight_layout()
 ```
 
--**PLot Sales Volume**
+- **PLot Sales Volume**
 ```bash
 plt.figure(figsize=(15, 10))
 for i, company in enumerate(company_list, 1):
@@ -89,7 +89,7 @@ plt.tight_layout()
 
 # Exponential Moving Average (EMA)
 
--**Calculate and Plot EMA**
+- **Calculate and Plot EMA**
 ```bash
 ema_day = [10, 20, 50]
 
@@ -110,7 +110,7 @@ plt.tight_layout()
 
 # Predictive Modelling
 
--**Prepare Data for LSTM**
+- **Prepare Data for LSTM**
 
 ```bash
 data = symbol_data.filter(['Close'])
@@ -120,7 +120,7 @@ scaler = MinMaxScaler(feature_range=(0,1))
 scaled_data = scaler.fit_transform(dataset)
 ```
 
--**Train LSTM Model**
+- **Train LSTM Model**
 ```bash
 train_data = scaled_data[0:int(training_data_len), :]
 x_train = []
@@ -140,7 +140,7 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 model.fit(x_train, y_train, batch_size=1, epochs=10)
 ```
 
--**Evaluate Model**
+- **Evaluate Model**
 ```bash
 test_data = scaled_data[training_data_len - 60:, :]
 x_test = []
@@ -154,7 +154,7 @@ predictions = scaler.inverse_transform(predictions)
 rmse = np.sqrt(np.mean(((predictions - y_test) ** 2)))
 ```
 
--**Train FeedForward Neural Network Model**
+- **Train FeedForward Neural Network Model**
 ```bash
 model = Sequential()
 model.add(Dense(128, activation='relu', input_shape=(x_train.shape[1],)))
@@ -167,6 +167,6 @@ model.fit(x_train, y_train, batch_size=1, epochs=10)
 
 # ACKNOWLEDGEMENTS
 - **The data is sourced from Yahoo Finance.**
--**Libraries used:** pandas, numpy, matplotlib, seaborn, pandas_datareader, yfinance, keras, scikit-learn.
+- **Libraries used:** pandas, numpy, matplotlib, seaborn, pandas_datareader, yfinance, keras, scikit-learn.
 sql
 
